@@ -1,0 +1,17 @@
+{
+    "name": "liubingzhe/loop",
+    "description": "loop",
+    "type": "project",
+    "require": {
+    },
+    "require-dev": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "liubingzhe",
+            "email": "344529372@qq.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
