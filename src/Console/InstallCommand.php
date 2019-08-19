@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Liubingzhe\Loop\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'admin:install';
+    protected $signature = 'loop:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the admin package';
+    protected $description = 'Install the loop package';
 
     /**
      * Install directory.
@@ -46,13 +46,13 @@ class InstallCommand extends Command
      */
     public function initDatabase()
     {
-        $this->call('migrate');
-
-        $userModel = config('admin.database.users_model');
-
-        if ($userModel::count() == 0) {
-            $this->call('db:seed', ['--class' => \Encore\Admin\Auth\Database\AdminTablesSeeder::class]);
-        }
+//        $this->call('migrate');
+//
+//        $userModel = config('admin.database.users_model');
+//
+//        if ($userModel::count() == 0) {
+//            $this->call('db:seed', ['--class' => \Encore\Admin\Auth\Database\AdminTablesSeeder::class]);
+//        }
     }
 
     /**
@@ -62,7 +62,7 @@ class InstallCommand extends Command
      */
     protected function initAdminDirectory()
     {
-        $this->directory = config('admin.directory');
+        $this->directory = config('loop.directory');
 
         if (is_dir($this->directory)) {
             $this->line("<error>{$this->directory} directory already exists !</error> ");
@@ -75,11 +75,11 @@ class InstallCommand extends Command
 
         $this->makeDir('Controllers');
 
-        $this->createHomeController();
-        $this->createAuthController();
-        $this->createExampleController();
-
-        $this->createBootstrapFile();
+        $this->createLoopController();
+//        $this->createAuthController();
+//        $this->createExampleController();
+//
+//        $this->createBootstrapFile();
         $this->createRoutesFile();
     }
 
@@ -88,16 +88,16 @@ class InstallCommand extends Command
      *
      * @return void
      */
-    public function createHomeController()
+    public function createLoopController()
     {
-        $homeController = $this->directory.'/Controllers/HomeController.php';
-        $contents = $this->getStub('HomeController');
+        $loopController = $this->directory.'/Controllers/API/Loop/LoopController.php';
+        $contents = $this->getStub('LoopController');
 
         $this->laravel['files']->put(
-            $homeController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
+            $loopController,
+            str_replace('DummyNamespace', config('loop.route.namespace'), $contents)
         );
-        $this->line('<info>HomeController file was created:</info> '.str_replace(base_path(), '', $homeController));
+        $this->line('<info>LoopController file was created:</info> '.str_replace(base_path(), '', $loopController));
     }
 
     /**
