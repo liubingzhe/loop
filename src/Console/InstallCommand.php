@@ -26,6 +26,7 @@ class InstallCommand extends Command
      * @var string
      */
     protected $directory = '';
+    protected $route_dir = '';
 
     /**
      * Execute the console command.
@@ -34,7 +35,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-//        $this->initDatabase();
+        //        $this->initDatabase();
 
         $this->initLoopDirectory();
     }
@@ -63,91 +64,33 @@ class InstallCommand extends Command
     protected function initLoopDirectory()
     {
         $this->directory = config('loop.directory');
-
+        $this->route_dir = config('loop.route_dir');
         if (is_dir($this->directory)) {
-            $this->line("<error>{$this->directory} directory already exists !</error> ");
-
-            return;
+            $this->line("<info>{$this->directory} directory already exists !</info> ");
+            //            return;
         }
+        $this->makeDir($this->directory);
+        $this->line('<info>Loop directory was created:</info> '.str_replace(base_path(), '', $this->directory));
 
-        $this->makeDir('/');
-        $this->line('<info>Admin directory was created:</info> '.str_replace(base_path(), '', $this->directory));
-
-        $this->makeDir('Controllers');
-
-        $this->createHomeController();
-        $this->createAuthController();
-        $this->createExampleController();
-
-        $this->createBootstrapFile();
+        $this->createLoopController();
         $this->createRoutesFile();
     }
 
     /**
-     * Create HomeController.
+     * Create LoopController.
      *
      * @return void
      */
-    public function createHomeController()
+    public function createLoopController()
     {
-        $homeController = $this->directory.'/Controllers/HomeController.php';
-        $contents = $this->getStub('HomeController');
-
+        $loopController = $this->directory.DIRECTORY_SEPARATOR.'LoopController.php';
+        $contents = $this->getStub('LoopController');
         $this->laravel['files']->put(
-            $homeController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
+            $loopController,
+            str_replace('myNamespace', config('loop.route.namespace'), $contents)
         );
-        $this->line('<info>HomeController file was created:</info> '.str_replace(base_path(), '', $homeController));
+        $this->line('<info>LoopController file was created:</info> '.str_replace(base_path(), '', $loopController));
     }
-
-    /**
-     * Create AuthController.
-     *
-     * @return void
-     */
-    public function createAuthController()
-    {
-        $authController = $this->directory.'/Controllers/AuthController.php';
-        $contents = $this->getStub('AuthController');
-
-        $this->laravel['files']->put(
-            $authController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
-        );
-        $this->line('<info>AuthController file was created:</info> '.str_replace(base_path(), '', $authController));
-    }
-
-    /**
-     * Create HomeController.
-     *
-     * @return void
-     */
-    public function createExampleController()
-    {
-        $exampleController = $this->directory.'/Controllers/ExampleController.php';
-        $contents = $this->getStub('ExampleController');
-
-        $this->laravel['files']->put(
-            $exampleController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
-        );
-        $this->line('<info>ExampleController file was created:</info> '.str_replace(base_path(), '', $exampleController));
-    }
-
-    /**
-     * Create routes file.
-     *
-     * @return void
-     */
-    protected function createBootstrapFile()
-    {
-        $file = $this->directory.'/bootstrap.php';
-
-        $contents = $this->getStub('bootstrap');
-        $this->laravel['files']->put($file, $contents);
-        $this->line('<info>Bootstrap file was created:</info> '.str_replace(base_path(), '', $file));
-    }
-
     /**
      * Create routes file.
      *
@@ -155,10 +98,11 @@ class InstallCommand extends Command
      */
     protected function createRoutesFile()
     {
-        $file = $this->directory.'/routes.php';
+
+        $file = $this->route_dir.DIRECTORY_SEPARATOR.'loop.php';
 
         $contents = $this->getStub('routes');
-        $this->laravel['files']->put($file, str_replace('DummyNamespace', config('admin.route.namespace'), $contents));
+        $this->laravel['files']->put($file, str_replace('myNamespace', config('loop.route.namespace'), $contents));
         $this->line('<info>Routes file was created:</info> '.str_replace(base_path(), '', $file));
     }
 

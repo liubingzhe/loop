@@ -62,7 +62,7 @@ return [
 
         'namespace' => 'App\\Http\\Controllers\\API\\Loop',
 
-//        'middleware' => ['web', 'admin'],
+        'middleware' => ['web', 'api'],
     ],
 
     /*
@@ -75,7 +75,8 @@ return [
     | be set before running `artisan admin::install` to take effect.
     |
     */
-    'directory' => app_path('Http'),
+    'directory' => app_path('Http'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'API'.DIRECTORY_SEPARATOR.'Loop'),
+    'route_dir' => base_path('routes'),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +96,7 @@ return [
     | If your page is going to be accessed via https, set it to `true`.
     |
     */
-    'https' => env('ADMIN_HTTPS', false),
+//    'https' => env('ADMIN_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
