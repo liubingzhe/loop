@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Loop\\Loop\\": "src/"
+            "Liubingzhe\\Loop\\": "src/"
         },
         "files": [
             "src/helpers.php"
