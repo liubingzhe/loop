@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Liubingzhe\Loop\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'admin:install';
+    protected $signature = 'loop:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the admin package';
+    protected $description = 'Install the loop package';
 
     /**
      * Install directory.
@@ -34,9 +34,9 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->initDatabase();
+//        $this->initDatabase();
 
-        $this->initAdminDirectory();
+        $this->initLoopDirectory();
     }
 
     /**
@@ -60,9 +60,9 @@ class InstallCommand extends Command
      *
      * @return void
      */
-    protected function initAdminDirectory()
+    protected function initLoopDirectory()
     {
-        $this->directory = config('admin.directory');
+        $this->directory = config('loop.directory');
 
         if (is_dir($this->directory)) {
             $this->line("<error>{$this->directory} directory already exists !</error> ");
