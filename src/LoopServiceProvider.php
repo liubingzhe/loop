@@ -12,21 +12,21 @@ class LoopServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        Console\AdminCommand::class,
-        Console\MakeCommand::class,
-        Console\MenuCommand::class,
-        Console\InstallCommand::class,
-        Console\PublishCommand::class,
-        Console\UninstallCommand::class,
-        Console\ImportCommand::class,
-        Console\CreateUserCommand::class,
-        Console\ResetPasswordCommand::class,
-        Console\ExtendCommand::class,
-        Console\ExportSeedCommand::class,
-        Console\MinifyCommand::class,
-        Console\FormCommand::class,
-        Console\PermissionCommand::class,
-        Console\ActionCommand::class,
+//        Console\AdminCommand::class,
+//        Console\MakeCommand::class,
+//        Console\MenuCommand::class,
+//        Console\InstallCommand::class,
+//        Console\PublishCommand::class,
+//        Console\UninstallCommand::class,
+//        Console\ImportCommand::class,
+//        Console\CreateUserCommand::class,
+//        Console\ResetPasswordCommand::class,
+//        Console\ExtendCommand::class,
+//        Console\ExportSeedCommand::class,
+//        Console\MinifyCommand::class,
+//        Console\FormCommand::class,
+//        Console\PermissionCommand::class,
+//        Console\ActionCommand::class,
     ];
 
     /**
