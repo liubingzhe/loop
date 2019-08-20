@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace Liubingzhe\Loop\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'admin:publish {--force}';
+    protected $signature = 'loop:publish {--force}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "re-publish laravel-admin's assets, configuration, language and migration files. If you want overwrite the existing files, you can add the `--force` option";
+    protected $description = "re-publish laravel-loop's assets, configuration, language and migration files. If you want overwrite the existing files, you can add the `--force` option";
 
     /**
      * Execute the console command.
@@ -28,7 +28,7 @@ class PublishCommand extends Command
     public function handle()
     {
         $force = $this->option('force');
-        $options = ['--provider' => 'Encore\Admin\AdminServiceProvider'];
+        $options = ['--provider' => 'Liubingzhe\Loop\LoopServiceProvider'];
         if ($force == true) {
             $options['--force'] = true;
         }

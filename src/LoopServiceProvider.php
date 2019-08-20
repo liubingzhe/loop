@@ -12,7 +12,21 @@ class LoopServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
+        Console\AdminCommand::class,
+        Console\MakeCommand::class,
+        Console\MenuCommand::class,
         Console\InstallCommand::class,
+        Console\PublishCommand::class,
+        Console\UninstallCommand::class,
+        Console\ImportCommand::class,
+        Console\CreateUserCommand::class,
+        Console\ResetPasswordCommand::class,
+        Console\ExtendCommand::class,
+        Console\ExportSeedCommand::class,
+        Console\MinifyCommand::class,
+        Console\FormCommand::class,
+        Console\PermissionCommand::class,
+        Console\ActionCommand::class,
     ];
 
     /**
@@ -21,12 +35,12 @@ class LoopServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-//        'admin.auth'       => Middleware\Authenticate::class,
-//        'admin.pjax'       => Middleware\Pjax::class,
-//        'admin.log'        => Middleware\LogOperation::class,
-//        'admin.permission' => Middleware\Permission::class,
-//        'admin.bootstrap'  => Middleware\Bootstrap::class,
-//        'admin.session'    => Middleware\Session::class,
+        'admin.auth'       => Middleware\Authenticate::class,
+        'admin.pjax'       => Middleware\Pjax::class,
+        'admin.log'        => Middleware\LogOperation::class,
+        'admin.permission' => Middleware\Permission::class,
+        'admin.bootstrap'  => Middleware\Bootstrap::class,
+        'admin.session'    => Middleware\Session::class,
     ];
 
     /**
@@ -35,14 +49,14 @@ class LoopServiceProvider extends ServiceProvider
      * @var array
      */
     protected $middlewareGroups = [
-//        'admin' => [
-//            'admin.auth',
-//            'admin.pjax',
-//            'admin.log',
-//            'admin.bootstrap',
-//            'admin.permission',
-////            'admin.session',
-//        ],
+        'admin' => [
+            'admin.auth',
+            'admin.pjax',
+            'admin.log',
+            'admin.bootstrap',
+            'admin.permission',
+//            'admin.session',
+        ],
     ];
 
     /**
@@ -52,7 +66,7 @@ class LoopServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
 
         $this->ensureHttps();
 

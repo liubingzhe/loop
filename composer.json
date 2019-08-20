@@ -1,11 +1,7 @@
 {
     "name": "liubingzhe/loop",
     "description": "loop",
-    "type": "project",
-    "require": {
-    },
-    "require-dev": {
-    },
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -13,5 +9,35 @@
             "email": "344529372@qq.com"
         }
     ],
-    "minimum-stability": "dev"
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Loop\\Loop\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+        },
+        "classmap": [
+        ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    },
+    "suggest": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Liubingzhe\\Loop\\LoopServiceProvider"
+            ]
+
+        }
+    }
 }
