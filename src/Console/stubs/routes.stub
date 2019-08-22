@@ -9,9 +9,10 @@ Route::group([
     'middleware'    => config('loop.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', function () {
+    $router->get('/a', function () {
         return 'loop';
     });
+    $router->get('/', 'API\Loop\LoopController@test');
 
 
 });

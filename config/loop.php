@@ -60,7 +60,7 @@ return [
 
         'prefix' => env('ADMIN_ROUTE_PREFIX', 'loop'),
 
-        'namespace' => 'App\\Http\\Controllers\\API\\Loop',
+        'namespace' => 'App\\Http\\Controllers',
 
         'middleware' => ['web', 'api'],
     ],
@@ -75,8 +75,7 @@ return [
     | be set before running `artisan admin::install` to take effect.
     |
     */
-    'directory' => app_path('Http').DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'API'.DIRECTORY_SEPARATOR.'Loop',
-    'routes_dir' => base_path('routes'),
+    'directory' => app_path('Http'),
 
     /*
     |--------------------------------------------------------------------------
