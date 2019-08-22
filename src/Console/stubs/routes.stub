@@ -1,6 +1,17 @@
 <?php
 
+use Illuminate\Routing\Router;
 
-Route::get('/loop', function () {
-    return 'loop';
+
+Route::group([
+    'prefix'        => config('loop.route.prefix'),
+    'namespace'     => config('loop.route.namespace'),
+    'middleware'    => config('loop.route.middleware'),
+], function (Router $router) {
+
+    $router->get('/', function () {
+        return 'loop';
+    });
+
+
 });

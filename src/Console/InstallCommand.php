@@ -26,7 +26,7 @@ class InstallCommand extends Command
      * @var string
      */
     protected $directory = '';
-    protected $route_dir = '';
+    protected $routes_dir = '';
 
     /**
      * Execute the console command.
@@ -64,13 +64,16 @@ class InstallCommand extends Command
     protected function initLoopDirectory()
     {
         $this->directory = config('loop.directory');
-        $this->route_dir = config('loop.route_dir');
+        $this->routes_dir = config('loop.routes_dir');
+//        $this->line("<info>{$this->routes_dir} </info> ");
+//        return;
         if (is_dir($this->directory)) {
             $this->line("<info>{$this->directory} directory already exists !</info> ");
             //            return;
+        }else{
+            $this->makeDir($this->directory);
+            $this->line('<info>Loop directory was created:</info> '.str_replace(base_path(), '', $this->directory));
         }
-        $this->makeDir($this->directory);
-        $this->line('<info>Loop directory was created:</info> '.str_replace(base_path(), '', $this->directory));
 
         $this->createLoopController();
         $this->createRoutesFile();
@@ -99,7 +102,7 @@ class InstallCommand extends Command
     protected function createRoutesFile()
     {
 
-        $file = $this->route_dir.DIRECTORY_SEPARATOR.'loop.php';
+        $file = $this->routes_dir.DIRECTORY_SEPARATOR.'loop_routes.php';
 
         $contents = $this->getStub('routes');
         $this->laravel['files']->put($file, str_replace('myNamespace', config('loop.route.namespace'), $contents));
@@ -123,8 +126,8 @@ class InstallCommand extends Command
      *
      * @param string $path
      */
-    protected function makeDir($path = '')
+    protected function makeDir($path)
     {
-        $this->laravel['files']->makeDirectory("{$this->directory}/$path", 0755, true, true);
+        $this->laravel['files']->makeDirectory($path, 0755, true, true);
     }
 }

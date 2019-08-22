@@ -70,7 +70,7 @@ class LoopServiceProvider extends ServiceProvider
 
 //        $this->ensureHttps();
 
-        if (file_exists($routes = admin_path('routes.php'))) {
+        if (file_exists($routes = config('loop.routes_dir').'/loop_routes.php')) {
             $this->loadRoutesFrom($routes);
         }
 

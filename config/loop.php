@@ -44,7 +44,7 @@ return [
     | This value is the path of laravel-admin bootstrap file.
     |
     */
-//    'bootstrap' => app_path('Admin/bootstrap.php'),
+    //    'bootstrap' => app_path('Admin/bootstrap.php'),
 
     /*
     |--------------------------------------------------------------------------
@@ -75,8 +75,8 @@ return [
     | be set before running `artisan admin::install` to take effect.
     |
     */
-    'directory' => app_path('Http'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'API'.DIRECTORY_SEPARATOR.'Loop'),
-    'route_dir' => base_path('routes'),
+    'directory' => app_path('Http').DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'API'.DIRECTORY_SEPARATOR.'Loop',
+    'routes_dir' => base_path('routes'),
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
     | If your page is going to be accessed via https, set it to `true`.
     |
     */
-//    'https' => env('ADMIN_HTTPS', false),
+    //    'https' => env('ADMIN_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -109,38 +109,38 @@ return [
     | You can specify a controller for `login` `logout` and other auth routes.
     |
     */
-//    'auth' => [
-//
-//        'controller' => App\Admin\Controllers\AuthController::class,
-//
-//        'guard' => 'admin',
-//
-//        'guards' => [
-//            'admin' => [
-//                'driver'   => 'session',
-//                'provider' => 'admin',
-//            ],
-//        ],
-//
-//        'providers' => [
-//            'admin' => [
-//                'driver' => 'eloquent',
-//                'model'  => Encore\Admin\Auth\Database\Administrator::class,
-//            ],
-//        ],
-//
-//        // Add "remember me" to login form
-//        'remember' => true,
-//
-//        // Redirect to the specified URI when user is not authorized.
-//        'redirect_to' => 'auth/login',
-//
-//        // The URIs that should be excluded from authorization.
-//        'excepts' => [
-//            'auth/login',
-//            'auth/logout',
-//        ],
-//    ],
+    //    'auth' => [
+    //
+    //        'controller' => App\Admin\Controllers\AuthController::class,
+    //
+    //        'guard' => 'admin',
+    //
+    //        'guards' => [
+    //            'admin' => [
+    //                'driver'   => 'session',
+    //                'provider' => 'admin',
+    //            ],
+    //        ],
+    //
+    //        'providers' => [
+    //            'admin' => [
+    //                'driver' => 'eloquent',
+    //                'model'  => Encore\Admin\Auth\Database\Administrator::class,
+    //            ],
+    //        ],
+    //
+    //        // Add "remember me" to login form
+    //        'remember' => true,
+    //
+    //        // Redirect to the specified URI when user is not authorized.
+    //        'redirect_to' => 'auth/login',
+    //
+    //        // The URIs that should be excluded from authorization.
+    //        'excepts' => [
+    //            'auth/login',
+    //            'auth/logout',
+    //        ],
+    //    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -151,17 +151,17 @@ return [
     | disk and upload path.
     |
     */
-//    'upload' => [
-//
-//        // Disk in `config/filesystem.php`.
-//        'disk' => 'admin',
-//
-//        // Image and file upload path under the disk above.
-//        'directory' => [
-//            'image' => 'images',
-//            'file'  => 'files',
-//        ],
-//    ],
+    //    'upload' => [
+    //
+    //        // Disk in `config/filesystem.php`.
+    //        'disk' => 'admin',
+    //
+    //        // Image and file upload path under the disk above.
+    //        'directory' => [
+    //            'image' => 'images',
+    //            'file'  => 'files',
+    //        ],
+    //    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -171,34 +171,34 @@ return [
     | Here are database settings for laravel-admin builtin model & tables.
     |
     */
-//    'database' => [
-//
-//        // Database connection for following tables.
-//        'connection' => '',
-//
-//        // User tables and model.
-//        'users_table' => 'admin_users',
-//        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
-//
-//        // Role table and model.
-//        'roles_table' => 'admin_roles',
-//        'roles_model' => Encore\Admin\Auth\Database\Role::class,
-//
-//        // Permission table and model.
-//        'permissions_table' => 'admin_permissions',
-//        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
-//
-//        // Menu table and model.
-//        'menu_table' => 'admin_menu',
-//        'menu_model' => Encore\Admin\Auth\Database\Menu::class,
-//
-//        // Pivot table for table above.
-//        'operation_log_table'    => 'admin_operation_log',
-//        'user_permissions_table' => 'admin_user_permissions',
-//        'role_users_table'       => 'admin_role_users',
-//        'role_permissions_table' => 'admin_role_permissions',
-//        'role_menu_table'        => 'admin_role_menu',
-//    ],
+    //    'database' => [
+    //
+    //        // Database connection for following tables.
+    //        'connection' => '',
+    //
+    //        // User tables and model.
+    //        'users_table' => 'admin_users',
+    //        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
+    //
+    //        // Role table and model.
+    //        'roles_table' => 'admin_roles',
+    //        'roles_model' => Encore\Admin\Auth\Database\Role::class,
+    //
+    //        // Permission table and model.
+    //        'permissions_table' => 'admin_permissions',
+    //        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
+    //
+    //        // Menu table and model.
+    //        'menu_table' => 'admin_menu',
+    //        'menu_model' => Encore\Admin\Auth\Database\Menu::class,
+    //
+    //        // Pivot table for table above.
+    //        'operation_log_table'    => 'admin_operation_log',
+    //        'user_permissions_table' => 'admin_user_permissions',
+    //        'role_users_table'       => 'admin_role_users',
+    //        'role_permissions_table' => 'admin_role_permissions',
+    //        'role_menu_table'        => 'admin_role_menu',
+    //    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -208,25 +208,25 @@ return [
     | By setting this option to open or close operation log in laravel-admin.
     |
     */
-//    'operation_log' => [
-//
-//        'enable' => true,
-//
-//        /*
-//         * Only logging allowed methods in the list
-//         */
-//        'allowed_methods' => ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'],
-//
-//        /*
-//         * Routes that will not log to database.
-//         *
-//         * All method to path like: admin/auth/logs
-//         * or specific method to path like: get:admin/auth/logs.
-//         */
-//        'except' => [
-//            'admin/auth/logs*',
-//        ],
-//    ],
+    //    'operation_log' => [
+    //
+    //        'enable' => true,
+    //
+    //        /*
+    //         * Only logging allowed methods in the list
+    //         */
+    //        'allowed_methods' => ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'],
+    //
+    //        /*
+    //         * Routes that will not log to database.
+    //         *
+    //         * All method to path like: admin/auth/logs
+    //         * or specific method to path like: get:admin/auth/logs.
+    //         */
+    //        'except' => [
+    //            'admin/auth/logs*',
+    //        ],
+    //    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -240,7 +240,7 @@ return [
     | Indicates whether to check menu roles.
     |--------------------------------------------------------------------------
     */
-//    'check_menu_roles'       => true,
+    //    'check_menu_roles'       => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -250,7 +250,7 @@ return [
     | Set a default avatar for newly created users.
     |
     */
-//    'default_avatar' => '/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg',
+    //    'default_avatar' => '/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg',
 
     /*
     |--------------------------------------------------------------------------
@@ -260,7 +260,7 @@ return [
     | Supported: "tencent", "google", "yandex".
     |
     */
-//    'map_provider' => 'google',
+    //    'map_provider' => 'google',
 
     /*
     |--------------------------------------------------------------------------
