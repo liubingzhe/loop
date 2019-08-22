@@ -76,7 +76,7 @@ class LoopServiceProvider extends ServiceProvider
 
         $this->registerPublishing();
 
-        $this->compatibleBlade();
+//        $this->compatibleBlade();
     }
 
     /**
@@ -84,13 +84,13 @@ class LoopServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function ensureHttps()
-    {
-        if (config('admin.https') || config('admin.secure')) {
-            url()->forceScheme('https');
-            $this->app['request']->server->set('HTTPS', true);
-        }
-    }
+//    protected function ensureHttps()
+//    {
+//        if (config('admin.https') || config('admin.secure')) {
+//            url()->forceScheme('https');
+//            $this->app['request']->server->set('HTTPS', true);
+//        }
+//    }
 
     /**
      * Register the package's publishable resources.
@@ -112,14 +112,14 @@ class LoopServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function compatibleBlade()
-    {
-        $reflectionClass = new \ReflectionClass('\Illuminate\View\Compilers\BladeCompiler');
-
-        if ($reflectionClass->hasMethod('withoutDoubleEncoding')) {
-            Blade::withoutDoubleEncoding();
-        }
-    }
+//    protected function compatibleBlade()
+//    {
+//        $reflectionClass = new \ReflectionClass('\Illuminate\View\Compilers\BladeCompiler');
+//
+//        if ($reflectionClass->hasMethod('withoutDoubleEncoding')) {
+//            Blade::withoutDoubleEncoding();
+//        }
+//    }
 
     /**
      * Register the service provider.

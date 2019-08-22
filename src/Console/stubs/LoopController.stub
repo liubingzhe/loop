@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use function Psy\bin;
 
-class LoopController extends BaseController
+class LoopController
 {
+    public function test(){
+        echo 'tttt';die;
+    }
     public function getLoopImg(){
         $loop_img_info = DB::table('loop_img')
             ->select('name','path','ignore','endpoint')

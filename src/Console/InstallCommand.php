@@ -102,7 +102,7 @@ class InstallCommand extends Command
     protected function createRoutesFile()
     {
 
-        $file = base_path('routes/loop_routes.php');
+        $file = base_path('routes'.DIRECTORY_SEPARATOR.'loop_routes.php');
 
         $contents = $this->getStub('routes');
         $this->laravel['files']->put($file, str_replace('myNamespace', config('loop.route.namespace'), $contents));
